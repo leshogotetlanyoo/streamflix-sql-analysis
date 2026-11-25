@@ -8,3 +8,6 @@ SELECT * FROM users WHERE age IS NULL;
 
 -- Q3: Total monthly revenue from active users (R1,242.00)
 SELECT SUM(monthly_price) FROM users WHERE is_active = 1;
+
+-- Q4: Average show rating (7.8). 1 show was skipped because its rating is NULL; AVG ignores NULLs.
+SELECT AVG(rating) FROM shows;
