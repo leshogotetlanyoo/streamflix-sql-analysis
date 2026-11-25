@@ -9,3 +9,4 @@
 
 ## Section A: Foundations
 - Q1: SELECT full_name chooses which column to display, because I only want the names and not every column. WHERE plan = 'Premium' filters the rows, so only users on the Premium plan are kept. Without it, the query would return all 12 users. The result was 4 names: Thabo Nkosi, Naledi Khumalo, Zinhle Ndlovu and David Mwangi.
+- Q2: I use IS NULL and not = NULL because NULL does not equal anything, not even zero. It means "unknown". When I tried = NULL it returned 0 rows, so only IS NULL finds the missing values. In my data it found 3 users (user_ids 2, 6 and 10).
