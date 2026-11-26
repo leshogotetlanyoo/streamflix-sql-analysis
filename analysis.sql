@@ -68,3 +68,27 @@ SELECT u.full_name
 FROM users u
 LEFT JOIN views v ON u.user_id = v.user_id
 WHERE v.view_id IS NULL;
+
+-- Q15: Users who pay more than the average monthly price (4 Premium users at 199)
+SELECT full_name, monthly_price
+FROM users
+WHERE monthly_price > (SELECT AVG(monthly_price) FROM users);
+
+-- Q16: Churn rate (% cancelled) by plan: Basic 25, Standard 75, Premium 0
+SELECT plan,
+  ROUND(100.0 * SUM(CASE WHEN is_active = 0 THEN 1 ELSE 0 END) / COUNT(*), 1) AS churn_pct
+FROM users
+GROUP BY plan;
+
+-- Q17: Users per country, treating 'South Africa' and 'south africa' as one
+SELECT CASE WHEN LOWER(country) = 'south africa' THEN 'South Africa' ELSE country END AS country_clean,
+  COUNT(*) AS users
+FROM users
+GROUP BY country_clean;
+
+-- Q18: Label each show by rating (NULL checked first)
+SELECT title, rating,
+  CASE WHEN rating IS NULL THEN 'Not rated yet'
+       WHEN rating >= 8 THEN 'Highly rated'
+       ELSE 'Average' END AS rating_label
+FROM shows;
