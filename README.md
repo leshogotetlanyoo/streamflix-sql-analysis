@@ -3,7 +3,7 @@
 StreamFlix is a streaming service. In this project I investigated its database of users, shows and viewing history to answer business questions about revenue, churn and engagement, using SQL.
 
 **Name:** Tetlanyo Leshogo
-**Cohort:** [your cohort]
+**Cohort:** Data Science January
 
 ## Dataset
 - `users` (12 rows): subscribers, with plan, price, active status and country
